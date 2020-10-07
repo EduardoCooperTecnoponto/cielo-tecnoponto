@@ -469,6 +469,112 @@ try {
 // ...
 ```
 
+### Consultando uma recorrencia
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Cielo\API30\Merchant;
+
+use Cielo\API30\Ecommerce\Environment;
+use Cielo\API30\Ecommerce\CreditCard;
+use Cielo\API30\Ecommerce\CieloEcommerce;
+
+use Cielo\API30\Ecommerce\Request\CieloRequestException;
+
+// ...
+// ...
+// Configure o ambiente
+$environment = Environment::sandbox();
+
+// Configure seu merchant
+$merchant = new Merchant('MID', 'MKEY');
+
+try {
+    $recurrency = (new CieloEcommerce($merchant, $environment))->getRecurrentPayment('recurrency id');
+} catch (CieloRequestException $e) {
+    // Em caso de erros de integração, podemos tratar o erro aqui.
+    // os códigos de erro estão todos disponíveis no manual de integração.
+    $error = $e->getCieloError();
+}
+// ...
+```
+
+### Ativando/Desativando uma recorrência
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Cielo\API30\Merchant;
+
+use Cielo\API30\Ecommerce\Environment;
+use Cielo\API30\Ecommerce\CreditCard;
+use Cielo\API30\Ecommerce\CieloEcommerce;
+
+use Cielo\API30\Ecommerce\Request\CieloRequestException;
+
+// ...
+// ...
+// Configure o ambiente
+$environment = Environment::sandbox();
+
+// Configure seu merchant
+$merchant = new Merchant('MID', 'MKEY');
+
+try {
+    // Desativa uma recorrência
+    $recurrency = (new CieloEcommerce($merchant, $environment))->deactivateRecurrentPayment('recurrency id');
+    // Reativa uma recorrência
+    $recurrency = (new CieloEcommerce($merchant, $environment))->reactivateRecurrentPayment('recurrency id');
+} catch (CieloRequestException $e) {
+    // Em caso de erros de integração, podemos tratar o erro aqui.
+    // os códigos de erro estão todos disponíveis no manual de integração.
+    $error = $e->getCieloError();
+}
+// ...
+```
+
+### Alterar dia/valor de uma recorrência
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Cielo\API30\Merchant;
+
+use Cielo\API30\Ecommerce\Environment;
+use Cielo\API30\Ecommerce\CreditCard;
+use Cielo\API30\Ecommerce\CieloEcommerce;
+
+use Cielo\API30\Ecommerce\Request\CieloRequestException;
+
+// ...
+// ...
+// Configure o ambiente
+$environment = Environment::sandbox();
+
+// Configure seu merchant
+$merchant = new Merchant('MID', 'MKEY');
+
+try {
+    // Desativa uma recorrência
+    $recurrency = (new CieloEcommerce($merchant, $environment))->changeDayRecurrentPayment('recurrency id', 10);
+    // Reativa uma recorrencia
+    $recurrency = (new CieloEcommerce($merchant, $environment))->changeAmountRecurrentPayment('recurrency id', 1500);
+} catch (CieloRequestException $e) {
+    // Em caso de erros de integração, podemos tratar o erro aqui.
+    // os códigos de erro estão todos disponíveis no manual de integração.
+    $error = $e->getCieloError();
+}
+// ...
+```
+
+
 ## Manual
 
 Para mais informações sobre a integração com a API 3.0 da Cielo, vide o manual em: [Integração API 3.0](https://developercielo.github.io/manual/cielo-ecommerce)
