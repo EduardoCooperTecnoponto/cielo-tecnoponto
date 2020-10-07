@@ -7,6 +7,9 @@ use Cielo\API30\Ecommerce\Request\QueryRecurrentPaymentRequest;
 use Cielo\API30\Ecommerce\Request\QuerySaleRequest;
 use Cielo\API30\Ecommerce\Request\TokenizeCardRequest;
 use Cielo\API30\Ecommerce\Request\UpdateSaleRequest;
+use Cielo\API30\Ecommerce\Request\DeactiveRecurrencyPayment;
+use Cielo\API30\Ecommerce\Request\ReactivateRecurrencyPayment;
+
 use Cielo\API30\Merchant;
 use Psr\Log\LoggerInterface;
 
@@ -15,24 +18,23 @@ use Psr\Log\LoggerInterface;
  */
 class CieloEcommerce
 {
-
     private $merchant;
 
     private $environment;
 
     private $logger;
 
-	/**
-	 * Create an instance of CieloEcommerce choosing the environment where the
-	 * requests will be send
-	 *
-	 * @param Merchant $merchant
-	 *            The merchant credentials
-	 * @param Environment environment
-	 *            The environment: {@link Environment::production()} or
-	 *            {@link Environment::sandbox()}
-	 * @param LoggerInterface|null $logger
-	 */
+    /**
+     * Create an instance of CieloEcommerce choosing the environment where the
+     * requests will be send
+     *
+     * @param Merchant $merchant
+     *            The merchant credentials
+     * @param Environment environment
+     *            The environment: {@link Environment::production()} or
+     *            {@link Environment::sandbox()}
+     * @param LoggerInterface|null $logger
+     */
     public function __construct(Merchant $merchant, Environment $environment = null, LoggerInterface $logger = null)
     {
         if ($environment == null) {
@@ -175,5 +177,43 @@ class CieloEcommerce
         $tokenizeCardRequest = new TokenizeCardRequest($this->merchant, $this->environment, $this->logger);
 
         return $tokenizeCardRequest->execute($card);
+    }
+
+    /**
+     * Deactivate a RecurrentPayment on Cielo
+     *
+     * @param string $recurrentPaymentId
+     *            The RecurrentPaymentId to be deactivated
+     *
+     * @return \Cielo\API30\Ecommerce\RecurrentPayment The RecurrentPayment with authorization, tid, etc. returned by Cielo.
+     * @throws CieloRequestException if anything gets wrong.
+     * @see <a href=
+     *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
+     *      Codes</a>
+     */
+    public function deactivateRecurrentPayment($recurrentPaymentId)
+    {
+        $request = new DeactiveRecurrencyPayment($this->merchant, $this->environment, $this->logger);
+
+        return $request->execute($recurrentPaymentId);
+    }
+
+    /**
+     * Reactivate a RecurrentPayment on Cielo
+     *
+     * @param string $recurrentPaymentId
+     *            The RecurrentPaymentId to be reactivated
+     *
+     * @return \Cielo\API30\Ecommerce\RecurrentPayment The RecurrentPayment with authorization, tid, etc. returned by Cielo.
+     * @throws CieloRequestException if anything gets wrong.
+     * @see <a href=
+     *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
+     *      Codes</a>
+     */
+    public function reactivateRecurrentPayment($recurrentPaymentId)
+    {
+        $request = new ReactivateRecurrencyPayment($this->merchant, $this->environment, $this->logger);
+
+        return $request->execute($recurrentPaymentId);
     }
 }
