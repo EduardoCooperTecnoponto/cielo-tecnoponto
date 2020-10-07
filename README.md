@@ -574,6 +574,30 @@ try {
 // ...
 ```
 
+### Como usar este pacote ao invés do oficial
+
+Devido ao autor original do pacote não fazer merge em várias PR e nem responder as PR
+
+Forkei este para adicionar os métodos que eu estou precisando e a forma de usar sem mudar muita coisa na sua aplicação é,
+
+Alterar ou adicionar a linha 
+`"developercielo/api-3.0-php": "^2.0",` no seu composer, ela tem que ter a versão 2.0
+
+Adicione também ao composer a chave:
+
+```json
+  "repositories": [
+    {
+        "type": "vcs",
+        "url": "git@github.com:ciareis/CIELO-API-3.0-PHP.git"
+    }
+  ],
+```
+
+Assim ao instalar o pacote ao invés de usar a oficial você estará usando este pacote.
+
+```
+
 
 ## Manual
 
