@@ -3,18 +3,18 @@
 namespace Cielo\API30\Ecommerce;
 
 use Cielo\API30\Ecommerce\Request\CreateSaleRequest;
+use Cielo\API30\Ecommerce\Request\DeactiveRecurrencyPayment;
 use Cielo\API30\Ecommerce\Request\QueryRecurrentPaymentRequest;
 use Cielo\API30\Ecommerce\Request\QuerySaleRequest;
+use Cielo\API30\Ecommerce\Request\ReactivateRecurrencyPayment;
+use Cielo\API30\Ecommerce\Request\RecurrencyDayRecurrencyPayment;
 use Cielo\API30\Ecommerce\Request\TokenizeCardRequest;
 use Cielo\API30\Ecommerce\Request\UpdateSaleRequest;
-use Cielo\API30\Ecommerce\Request\DeactiveRecurrencyPayment;
-use Cielo\API30\Ecommerce\Request\ReactivateRecurrencyPayment;
-
 use Cielo\API30\Merchant;
 use Psr\Log\LoggerInterface;
 
 /**
- * The Cielo Ecommerce SDK front-end;
+ * The Cielo Ecommerce SDK front-end;.
  */
 class CieloEcommerce
 {
@@ -26,24 +26,23 @@ class CieloEcommerce
 
     /**
      * Create an instance of CieloEcommerce choosing the environment where the
-     * requests will be send
+     * requests will be send.
      *
      * @param Merchant $merchant
-     *            The merchant credentials
+     *                           The merchant credentials
      * @param Environment environment
      *            The environment: {@link Environment::production()} or
      *            {@link Environment::sandbox()}
-     * @param LoggerInterface|null $logger
      */
     public function __construct(Merchant $merchant, Environment $environment = null, LoggerInterface $logger = null)
     {
-        if ($environment == null) {
+        if (null === $environment) {
             $environment = Environment::production();
         }
 
-        $this->merchant    = $merchant;
+        $this->merchant = $merchant;
         $this->environment = $environment;
-        $this->logger      = $logger;
+        $this->logger = $logger;
     }
 
     /**
@@ -51,11 +50,11 @@ class CieloEcommerce
      * returned by Cielo.
      *
      * @param Sale $sale
-     *            The preconfigured Sale
+     *                   The preconfigured Sale
+     *
+     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
      * @return Sale The Sale with authorization, tid, etc. returned by Cielo.
-     *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong.
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
@@ -69,14 +68,14 @@ class CieloEcommerce
     }
 
     /**
-     * Query a Sale on Cielo by paymentId
+     * Query a Sale on Cielo by paymentId.
      *
      * @param string $paymentId
-     *            The paymentId to be queried
+     *                          The paymentId to be queried
+     *
+     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
      * @return Sale The Sale with authorization, tid, etc. returned by Cielo.
-     *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong.
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
@@ -90,15 +89,15 @@ class CieloEcommerce
     }
 
     /**
-     * Query a RecurrentPayment on Cielo by RecurrentPaymentId
+     * Query a RecurrentPayment on Cielo by RecurrentPaymentId.
      *
      * @param string $recurrentPaymentId
-     *            The RecurrentPaymentId to be queried
+     *                                   The RecurrentPaymentId to be queried
+     *
+     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
      * @return \Cielo\API30\Ecommerce\RecurrentPayment
-     *            The RecurrentPayment with authorization, tid, etc. returned by Cielo.
-     *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong.
+     *                                                 The RecurrentPayment with authorization, tid, etc. returned by Cielo.
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
@@ -112,16 +111,16 @@ class CieloEcommerce
     }
 
     /**
-     * Cancel a Sale on Cielo by paymentId and speficying the amount
+     * Cancel a Sale on Cielo by paymentId and speficying the amount.
      *
-     * @param string  $paymentId
-     *            The paymentId to be queried
-     * @param integer $amount
-     *            Order value in cents
+     * @param string $paymentId
+     *                          The paymentId to be queried
+     * @param int    $amount
+     *                          Order value in cents
+     *
+     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
      * @return Sale The Sale with authorization, tid, etc. returned by Cielo.
-     *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong.
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
@@ -138,20 +137,19 @@ class CieloEcommerce
 
     /**
      * Capture a Sale on Cielo by paymentId and specifying the amount and the
-     * serviceTaxAmount
+     * serviceTaxAmount.
      *
-     * @param string  $paymentId
-     *            The paymentId to be captured
-     * @param integer $amount
-     *            Amount of the authorization to be captured
-     * @param integer $serviceTaxAmount
-     *            Amount of the authorization should be destined for the service
-     *            charge
+     * @param string $paymentId
+     *                                 The paymentId to be captured
+     * @param int    $amount
+     *                                 Amount of the authorization to be captured
+     * @param int    $serviceTaxAmount
+     *                                 Amount of the authorization should be destined for the service
+     *                                 charge
      *
-     * @return \Cielo\API30\Ecommerce\Payment The captured Payment.
+     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
-     *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong.
+     * @return \Cielo\API30\Ecommerce\Payment the captured Payment
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
@@ -168,8 +166,6 @@ class CieloEcommerce
     }
 
     /**
-     * @param CreditCard $card
-     *
      * @return CreditCard
      */
     public function tokenizeCard(CreditCard $card)
@@ -180,13 +176,15 @@ class CieloEcommerce
     }
 
     /**
-     * Deactivate a RecurrentPayment on Cielo
+     * Deactivate a RecurrentPayment on Cielo.
      *
      * @param string $recurrentPaymentId
-     *            The RecurrentPaymentId to be deactivated
+     *                                   The RecurrentPaymentId to be deactivated
+     *
+     * @throws CieloRequestException if anything gets wrong
      *
      * @return \Cielo\API30\Ecommerce\RecurrentPayment The RecurrentPayment with authorization, tid, etc. returned by Cielo.
-     * @throws CieloRequestException if anything gets wrong.
+     *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
      *      Codes</a>
@@ -199,13 +197,15 @@ class CieloEcommerce
     }
 
     /**
-     * Reactivate a RecurrentPayment on Cielo
+     * Reactivate a RecurrentPayment on Cielo.
      *
      * @param string $recurrentPaymentId
-     *            The RecurrentPaymentId to be reactivated
+     *                                   The RecurrentPaymentId to be reactivated
+     *
+     * @throws CieloRequestException if anything gets wrong
      *
      * @return \Cielo\API30\Ecommerce\RecurrentPayment The RecurrentPayment with authorization, tid, etc. returned by Cielo.
-     * @throws CieloRequestException if anything gets wrong.
+     *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
      *      Codes</a>
@@ -213,6 +213,23 @@ class CieloEcommerce
     public function reactivateRecurrentPayment($recurrentPaymentId)
     {
         $request = new ReactivateRecurrencyPayment($this->merchant, $this->environment, $this->logger);
+
+        return $request->execute($recurrentPaymentId);
+    }
+
+    /**
+     * Change the day of a RecurrentPayment on Cielo.
+     *
+     * @param $recurrentPaymentId
+     * @param int $recurrencyDay
+     *
+     * @return mixed
+     */
+    public function changeDayRecurrentPayment($recurrentPaymentId, $recurrencyDay)
+    {
+        $request = new RecurrencyDayRecurrencyPayment($this->merchant, $this->environment, $this->logger);
+
+        $request->setContent($recurrencyDay);
 
         return $request->execute($recurrentPaymentId);
     }
