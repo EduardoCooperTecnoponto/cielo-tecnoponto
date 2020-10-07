@@ -9,7 +9,7 @@ Devido ao autor original do pacote não fazer merge em várias PR e nem responde
 Forkei este para adicionar os métodos que são necessários para trabalhar com recorrência.
 
 Alterar ou adicionar a linha 
-`"developercielo/api-3.0-php": "^2.0",` no seu composer, ela tem que ter a versão 2.0
+`"developercielo/api-3.0-php": "^2.1",` no seu composer, ela tem que ter a versão 2.1
 
 Adicione também ao composer a chave:
 
@@ -55,7 +55,7 @@ Se já possui um arquivo `composer.json`, basta adicionar a seguinte dependênci
 
 ```json
 "require": {
-    "developercielo/api-3.0-php": "^2.0"
+    "developercielo/api-3.0-php": "^2.1"
 }
 "repositories": [
 {

@@ -7,52 +7,37 @@ use Cielo\API30\Environment;
 use Cielo\API30\Merchant;
 use Psr\Log\LoggerInterface;
 
-/**
- * @package Cielo\API30\Ecommerce\Request
- */
 class UpdateRecurrentPaymentRequest extends AbstractRequest
 {
+    protected $kind;
     private $environment;
     private $logger;
-    protected $kind;
 
     /**
-    * UpdateRecurrentPaymentRequest constructor.
-    *
-    * @param Merchant    $merchant
-    * @param Environment $environment
-     * @param LoggerInterface|null $logger
-    */
+     * UpdateRecurrentPaymentRequest constructor.
+     */
     public function __construct(Merchant $merchant, Environment $environment, LoggerInterface $logger = null)
     {
         parent::__construct($merchant);
 
         $this->environment = $environment;
         $this->content = null;
-        $this->logger      = $logger;
+        $this->logger = $logger;
     }
-    
+
     /**
      * @param $recurrentPaymentId
      *
-     * @return null
      * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException
      * @throws \RuntimeException
+     *
+     * @return null
      */
     public function execute($recurrentPaymentId)
     {
-        $url = $this->environment->getApiURL() . "1/RecurrentPayment/{$recurrentPaymentId}}/{$this->kind}";
+        $url = $this->environment->getApiURL()."1/RecurrentPayment/{$recurrentPaymentId}/{$this->kind}";
 
         return $this->sendRequest('PUT', $url, $this->content);
-    }
-
-    /**
-     * @param $json
-     * @return RecurrentPayment
-     */
-    protected function unserialize($json)
-    {
-        return RecurrentPayment::fromJson($json);
     }
 
     /**
@@ -65,11 +50,23 @@ class UpdateRecurrentPaymentRequest extends AbstractRequest
 
     /**
      * @param mixed $content
-     * @return mixed|null
+     *
+     * @return null|mixed
      */
     public function setContent($content)
     {
         $this->content = $content;
+
         return $this->content;
+    }
+
+    /**
+     * @param $json
+     *
+     * @return RecurrentPayment
+     */
+    protected function unserialize($json)
+    {
+        return RecurrentPayment::fromJson($json);
     }
 }
