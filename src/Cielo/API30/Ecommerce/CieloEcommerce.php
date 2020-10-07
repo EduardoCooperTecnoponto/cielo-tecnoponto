@@ -7,6 +7,7 @@ use Cielo\API30\Ecommerce\Request\DeactiveRecurrencyPayment;
 use Cielo\API30\Ecommerce\Request\QueryRecurrentPaymentRequest;
 use Cielo\API30\Ecommerce\Request\QuerySaleRequest;
 use Cielo\API30\Ecommerce\Request\ReactivateRecurrencyPayment;
+use Cielo\API30\Ecommerce\Request\RecurrencyAmountRecurrencyPayment;
 use Cielo\API30\Ecommerce\Request\RecurrencyDayRecurrencyPayment;
 use Cielo\API30\Ecommerce\Request\TokenizeCardRequest;
 use Cielo\API30\Ecommerce\Request\UpdateSaleRequest;
@@ -230,6 +231,23 @@ class CieloEcommerce
         $request = new RecurrencyDayRecurrencyPayment($this->merchant, $this->environment, $this->logger);
 
         $request->setContent($recurrencyDay);
+
+        return $request->execute($recurrentPaymentId);
+    }
+
+    /**
+     * Change the amount of a RecurrentPayment on Cielo.
+     *
+     * @param $recurrentPaymentId
+     * @param int $amount
+     *
+     * @return mixed
+     */
+    public function changeAmountRecurrentPayment($recurrentPaymentId, $amount)
+    {
+        $request = new RecurrencyAmountRecurrencyPayment($this->merchant, $this->environment, $this->logger);
+
+        $request->setContent($amount);
 
         return $request->execute($recurrentPaymentId);
     }
