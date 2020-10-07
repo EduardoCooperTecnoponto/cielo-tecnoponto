@@ -562,9 +562,9 @@ $environment = Environment::sandbox();
 $merchant = new Merchant('MID', 'MKEY');
 
 try {
-    // Desativa uma recorrência
+    // Altera o dia da recorrência
     $recurrency = (new CieloEcommerce($merchant, $environment))->changeDayRecurrentPayment('recurrency id', 10);
-    // Reativa uma recorrencia
+    // Altera o valor da recorrência
     $recurrency = (new CieloEcommerce($merchant, $environment))->changeAmountRecurrentPayment('recurrency id', 1500);
 } catch (CieloRequestException $e) {
     // Em caso de erros de integração, podemos tratar o erro aqui.
