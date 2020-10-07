@@ -3,8 +3,6 @@
 namespace Cielo\API30\Ecommerce\Request;
 
 use Cielo\API30\Ecommerce\RecurrentPayment;
-use Cielo\API30\Environment;
-use Cielo\API30\Merchant;
 
 /**
  * @package Cielo\API30\Ecommerce\Request
