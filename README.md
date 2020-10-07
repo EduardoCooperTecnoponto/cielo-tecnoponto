@@ -2,11 +2,11 @@
 
 SDK API-3.0 PHP
 
-### Como usar este pacote ao invés do oficial
+## Como usar este pacote ao invés do oficial
 
 Devido ao autor original do pacote não fazer merge em várias PR e nem responder as PR
 
-Forkei este para adicionar os métodos que eu estou precisando e a forma de usar sem mudar muita coisa na sua aplicação é,
+Forkei este para adicionar os métodos que são necessários para trabalhar com recorrência.
 
 Alterar ou adicionar a linha 
 `"developercielo/api-3.0-php": "^2.0",` no seu composer, ela tem que ter a versão 2.0
@@ -27,9 +27,6 @@ Assim ao instalar o pacote ao invés de usar a oficial você estará usando este
 Lembre-se de fazer um update no pacote:
 
 `composer update developercielo/api-3.0-php`
-
-
-```
 
 ## Principais recursos
 
@@ -58,8 +55,14 @@ Se já possui um arquivo `composer.json`, basta adicionar a seguinte dependênci
 
 ```json
 "require": {
-    "developercielo/api-3.0-php": "^1.0"
+    "developercielo/api-3.0-php": "^2.0"
 }
+"repositories": [
+{
+    "type": "vcs",
+    "url": "git@github.com:ciareis/CIELO-API-3.0-PHP.git"
+}
+],
 ```
 
 Com a dependência adicionada ao `composer.json`, basta executar:
@@ -602,6 +605,11 @@ try {
 }
 // ...
 ```
+
+
+
+```
+
 
 ## Manual
 
