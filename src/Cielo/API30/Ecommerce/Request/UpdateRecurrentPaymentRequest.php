@@ -5,13 +5,13 @@ namespace Cielo\API30\Ecommerce\Request;
 use Cielo\API30\Ecommerce\RecurrentPayment;
 use Cielo\API30\Environment;
 use Cielo\API30\Merchant;
+use Psr\Log\LoggerInterface;
 
 /**
  * @package Cielo\API30\Ecommerce\Request
  */
 class UpdateRecurrentPaymentRequest extends AbstractRequest
 {
-    private $merchant;
     private $environment;
     private $logger;
     protected $kind;
@@ -21,13 +21,15 @@ class UpdateRecurrentPaymentRequest extends AbstractRequest
     *
     * @param Merchant    $merchant
     * @param Environment $environment
+     * @param LoggerInterface|null $logger
     */
-    public function __construct(Merchant $merchant, Environment $environment)
+    public function __construct(Merchant $merchant, Environment $environment, LoggerInterface $logger = null)
     {
         parent::__construct($merchant);
 
         $this->environment = $environment;
         $this->content = null;
+        $this->logger      = $logger;
     }
     
     /**
