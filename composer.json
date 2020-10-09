@@ -4,7 +4,7 @@
       "Ciareis\\Cielo\\": "src/Cielo"
     }
   },
-  "name": "ciaires/cielo-api-3.0-php",
+  "name": "ciareis/cielo-api-3.0-php",
   "description": "Integração com a API 3.0 da Cielo",
   "license": "MIT",
   "type": "library",
