@@ -8,22 +8,15 @@ use Cielo\API30\Merchant;
 use Psr\Log\LoggerInterface;
 
 /**
- * Class CreateSaleRequest
- *
- * @package Cielo\API30\Ecommerce\Request
+ * Class CreateSaleRequest.
  */
 class CreateSaleRequest extends AbstractRequest
 {
-
     private $environment;
 
-	/**
-	 * CreateSaleRequest constructor.
-	 *
-	 * @param Merchant $merchant
-	 * @param Environment $environment
-	 * @param LoggerInterface|null $logger
-	 */
+    /**
+     * CreateSaleRequest constructor.
+     */
     public function __construct(Merchant $merchant, Environment $environment, LoggerInterface $logger = null)
     {
         parent::__construct($merchant, $logger);
@@ -34,13 +27,14 @@ class CreateSaleRequest extends AbstractRequest
     /**
      * @param $sale
      *
-     * @return null
      * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException
      * @throws \RuntimeException
+     *
+     * @return null
      */
     public function execute($sale)
     {
-        $url = $this->environment->getApiUrl() . '1/sales/';
+        $url = $this->environment->getApiUrl().'1/sales/';
 
         return $this->sendRequest('POST', $url, $sale);
     }
