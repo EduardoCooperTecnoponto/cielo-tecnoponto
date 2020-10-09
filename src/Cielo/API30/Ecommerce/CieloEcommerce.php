@@ -2,6 +2,7 @@
 
 namespace Cielo\API30\Ecommerce;
 
+use Cielo\API30\Ecommerce\Request\ChangeSaleRequest;
 use Cielo\API30\Ecommerce\Request\CreateSaleRequest;
 use Cielo\API30\Ecommerce\Request\DeactiveRecurrencyPayment;
 use Cielo\API30\Ecommerce\Request\QueryRecurrentPaymentRequest;
@@ -250,5 +251,12 @@ class CieloEcommerce
         $request->setContent($amount);
 
         return $request->execute($recurrentPaymentId);
+    }
+
+    public function updateSale(Sale $sale)
+    {
+        $request = new ChangeSaleRequest($this->merchant, $this->environment, $this->logger);
+
+        return $request->execute($sale);
     }
 }
