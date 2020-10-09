@@ -3,11 +3,9 @@
 namespace Ciareis\Cielo\API30\Ecommerce;
 
 /**
- * Class Environment
- *
- * @package Cielo\API30\Ecommerce
+ * Class Environment.
  */
-class Environment implements \Cielo\API30\Environment
+class Environment implements \Ciareis\Cielo\API30\Environment
 {
     private $api;
 
@@ -21,7 +19,7 @@ class Environment implements \Cielo\API30\Environment
      */
     private function __construct($api, $apiQuery)
     {
-        $this->api      = $api;
+        $this->api = $api;
         $this->apiQuery = $apiQuery;
     }
 
@@ -30,10 +28,10 @@ class Environment implements \Cielo\API30\Environment
      */
     public static function sandbox()
     {
-        $api      = 'https://apisandbox.cieloecommerce.cielo.com.br/';
+        $api = 'https://apisandbox.cieloecommerce.cielo.com.br/';
         $apiQuery = 'https://apiquerysandbox.cieloecommerce.cielo.com.br/';
 
-        return new Environment($api, $apiQuery);
+        return new self($api, $apiQuery);
     }
 
     /**
@@ -41,14 +39,14 @@ class Environment implements \Cielo\API30\Environment
      */
     public static function production()
     {
-        $api      = 'https://api.cieloecommerce.cielo.com.br/';
+        $api = 'https://api.cieloecommerce.cielo.com.br/';
         $apiQuery = 'https://apiquery.cieloecommerce.cielo.com.br/';
 
-        return new Environment($api, $apiQuery);
+        return new self($api, $apiQuery);
     }
 
     /**
-     * Gets the environment's Api URL
+     * Gets the environment's Api URL.
      *
      * @return string the Api URL
      */
@@ -58,7 +56,7 @@ class Environment implements \Cielo\API30\Environment
     }
 
     /**
-     * Gets the environment's Api Query URL
+     * Gets the environment's Api Query URL.
      *
      * @return string Api Query URL
      */
