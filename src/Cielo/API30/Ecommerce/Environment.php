@@ -1,6 +1,6 @@
 <?php
 
-namespace Cielo\API30\Ecommerce;
+namespace Ciareis\Cielo\API30\Ecommerce;
 
 /**
  * Class Environment

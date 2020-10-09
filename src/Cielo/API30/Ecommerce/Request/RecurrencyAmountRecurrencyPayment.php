@@ -1,6 +1,6 @@
 <?php
 
-namespace Cielo\API30\Ecommerce\Request;
+namespace Ciareis\Cielo\API30\Ecommerce\Request;
 
 class RecurrencyAmountRecurrencyPayment extends UpdateRecurrentPaymentRequest
 {

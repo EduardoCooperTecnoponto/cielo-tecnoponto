@@ -1,10 +1,10 @@
 {
   "autoload": {
-    "psr-0": {
-      "Cielo": "src"
+    "psr-4": {
+      "Ciareis\\Cielo\\": "src/Cielo"
     }
   },
-  "name": "developercielo/api-3.0-php",
+  "name": "ciaires/cielo-api-3.0-php",
   "description": "Integração com a API 3.0 da Cielo",
   "license": "MIT",
   "type": "library",
@@ -17,5 +17,5 @@
   "suggest": {
     "monolog/monolog": "Allows more advanced logging of the application flow"
   },
-  "homepage": "https://github.com/DeveloperCielo/API-3.0-PHP"
+  "homepage": "https://github.com/ciareis/cielo-api-3.0-php"
 }

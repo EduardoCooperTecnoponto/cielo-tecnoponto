@@ -1,10 +1,10 @@
 <?php
 
-namespace Cielo\API30\Ecommerce\Request;
+namespace Ciareis\Cielo\API30\Ecommerce\Request;
 
-use Cielo\API30\Ecommerce\Payment;
-use Cielo\API30\Environment;
-use Cielo\API30\Merchant;
+use Ciareis\Cielo\API30\Ecommerce\Payment;
+use Ciareis\Cielo\API30\Environment;
+use Ciareis\Cielo\API30\Merchant;
 use Psr\Log\LoggerInterface;
 
 /**

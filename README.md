@@ -2,31 +2,11 @@
 
 SDK API-3.0 PHP
 
-## Como usar este pacote ao invés do oficial
+## Pacote forcado do original
 
-Devido ao autor original do pacote não fazer merge em várias PR e nem responder as PR
+Originalmente este pacote é derivado do pacote developercielo/api-3.0-php com adição de novos recursos.
 
-Forkei este para adicionar os métodos que são necessários para trabalhar com recorrência.
-
-Alterar ou adicionar a linha 
-`"developercielo/api-3.0-php": "^2.1",` no seu composer, ela tem que ter a versão 2.1
-
-Adicione também ao composer a chave:
-
-```json
-  "repositories": [
-    {
-        "type": "vcs",
-        "url": "git@github.com:ciareis/CIELO-API-3.0-PHP.git"
-    }
-  ],
-```
-
-Assim ao instalar o pacote ao invés de usar a oficial você estará usando este pacote.
-
-Lembre-se de fazer um update no pacote:
-
-`composer update developercielo/api-3.0-php`
+Por que não fizemos então uma PR ao pacote original? Existem várias sem respostas.
 
 ## Principais recursos
 
@@ -34,6 +14,9 @@ Lembre-se de fazer um update no pacote:
 * [x] Pagamentos recorrentes.
     * [x] Com autorização na primeira recorrência.
     * [x] Com autorização a partir da primeira recorrência.
+    * [x] Atualização de dados do pagamento
+    * [x] Alteração do dia de pagamento
+    * [x] Alteração do valor da recorrência
 * [x] Pagamentos por cartão de débito.
 * [x] Pagamentos por boleto.
 * [x] Pagamentos por transferência eletrônica.
@@ -55,14 +38,8 @@ Se já possui um arquivo `composer.json`, basta adicionar a seguinte dependênci
 
 ```json
 "require": {
-    "developercielo/api-3.0-php": "^2.1"
+    "ciareis/cielo-api-3.0-php": "^3.0"
 }
-"repositories": [
-{
-    "type": "vcs",
-    "url": "git@github.com:ciareis/CIELO-API-3.0-PHP.git"
-}
-],
 ```
 
 Com a dependência adicionada ao `composer.json`, basta executar:
@@ -74,7 +51,7 @@ composer install
 Alternativamente, você pode executar diretamente em seu terminal:
 
 ```
-composer require "developercielo/api-3.0-php"
+composer require "ciareis/cielo-api-3.0-php"
 ```
 
 ## Produtos e Bandeiras suportadas e suas constantes
@@ -83,7 +60,7 @@ composer require "developercielo/api-3.0-php"
 <?php
 require 'vendor/autoload.php';
 
-use Cielo\API30\Ecommerce\CreditCard;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
 ```
 
 | Bandeira         | Constante              | Crédito à vista | Crédito parcelado Loja | Débito | Voucher |
@@ -107,15 +84,15 @@ Para criar um pagamento simples com cartão de crédito com o SDK, basta fazer:
 <?php
 require 'vendor/autoload.php';
 
-use Cielo\API30\Merchant;
+use Ciareis\Cielo\API30\Merchant;
 
-use Cielo\API30\Ecommerce\Environment;
-use Cielo\API30\Ecommerce\Sale;
-use Cielo\API30\Ecommerce\CieloEcommerce;
-use Cielo\API30\Ecommerce\Payment;
-use Cielo\API30\Ecommerce\CreditCard;
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\Sale;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Ciareis\Cielo\API30\Ecommerce\Payment;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
 
-use Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // Configure o ambiente
 $environment = $environment = Environment::sandbox();
@@ -168,15 +145,15 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Cielo\API30\Merchant;
+use Ciareis\Cielo\API30\Merchant;
 
-use Cielo\API30\Ecommerce\Environment;
-use Cielo\API30\Ecommerce\Sale;
-use Cielo\API30\Ecommerce\CieloEcommerce;
-use Cielo\API30\Ecommerce\Payment;
-use Cielo\API30\Ecommerce\CreditCard;
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\Sale;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Ciareis\Cielo\API30\Ecommerce\Payment;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
 
-use Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // Configure o ambiente
 $environment = $environment = Environment::sandbox();
@@ -224,15 +201,15 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Cielo\API30\Merchant;
+use Ciareis\Cielo\API30\Merchant;
 
-use Cielo\API30\Ecommerce\Environment;
-use Cielo\API30\Ecommerce\Sale;
-use Cielo\API30\Ecommerce\CieloEcommerce;
-use Cielo\API30\Ecommerce\Payment;
-use Cielo\API30\Ecommerce\CreditCard;
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\Sale;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Ciareis\Cielo\API30\Ecommerce\Payment;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
 
-use Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // Configure o ambiente
 $environment = $environment = Environment::sandbox();
@@ -277,15 +254,15 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Cielo\API30\Merchant;
+use Ciareis\Cielo\API30\Merchant;
 
-use Cielo\API30\Ecommerce\Environment;
-use Cielo\API30\Ecommerce\Sale;
-use Cielo\API30\Ecommerce\CieloEcommerce;
-use Cielo\API30\Ecommerce\Payment;
-use Cielo\API30\Ecommerce\CreditCard;
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\Sale;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Ciareis\Cielo\API30\Ecommerce\Payment;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
 
-use Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // ...
 // Configure o ambiente
@@ -328,20 +305,231 @@ try {
 // ...
 ```
 
+### Consultando uma recorrencia
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Ciareis\Cielo\API30\Merchant;
+
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+
+// ...
+// ...
+// Configure o ambiente
+$environment = Environment::sandbox();
+
+// Configure seu merchant
+$merchant = new Merchant('MID', 'MKEY');
+
+try {
+    $recurrency = (new CieloEcommerce($merchant, $environment))->getRecurrentPayment('recurrency id');
+} catch (CieloRequestException $e) {
+    // Em caso de erros de integração, podemos tratar o erro aqui.
+    // os códigos de erro estão todos disponíveis no manual de integração.
+    $error = $e->getCieloError();
+}
+// ...
+```
+
+### Atualizando dados de pagamento de uma recorrencia
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use Ciareis\Cielo\API30\Merchant;
+
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\Sale;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Ciareis\Cielo\API30\Ecommerce\Payment;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+// ...
+// Configure o ambiente
+$environment = $environment = Environment::sandbox();
+
+// Configure seu merchant
+$merchant = new Merchant('MERCHANT ID', 'MERCHANT KEY');
+
+// Crie uma instância de Sale informando o ID do da recorrencia
+// Id devolvido por: $sale->getPayment()->getRecurrentPayment()->getRecurrentPaymentId();
+$sale = new Sale('123');
+
+// Crie uma instância de Customer informando o nome do cliente
+$customer = $sale->customer('Fulano de Tal');
+
+// Crie uma instância de Payment informando o valor do pagamento
+$payment = $sale->payment(15700);
+
+// Crie uma instância de Credit Card utilizando os dados de teste
+// esses dados estão disponíveis no manual de integração.
+// Utilize setSaveCard(true) para obter o token do cartão
+$payment->setType(Payment::PAYMENTTYPE_CREDITCARD)
+        ->creditCard("123", CreditCard::VISA)
+        ->setExpirationDate("12/2018")
+        ->setCardNumber("0000000000000001")
+        ->setHolder("Fulano de Tal");
+
+// Crie o pagamento na Cielo
+try {
+    // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
+    (new CieloEcommerce($merchant, $environment))->updateRecurrentPayment($sale);
+    // não retorna nada se for bem sucedido
+    return true
+} catch (CieloRequestException $e) {
+    // Em caso de erros de integração, podemos tratar o erro aqui.
+    // os códigos de erro estão todos disponíveis no manual de integração.
+    $error = $e->getCieloError();
+}
+```
+
+### Ativando/Desativando uma recorrência
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Ciareis\Cielo\API30\Merchant;
+
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+
+// ...
+// ...
+// Configure o ambiente
+$environment = Environment::sandbox();
+
+// Configure seu merchant
+$merchant = new Merchant('MID', 'MKEY');
+
+try {
+    // Desativa uma recorrência
+    $recurrency = (new CieloEcommerce($merchant, $environment))->deactivateRecurrentPayment('recurrency id');
+    // Reativa uma recorrência
+    $recurrency = (new CieloEcommerce($merchant, $environment))->reactivateRecurrentPayment('recurrency id');
+} catch (CieloRequestException $e) {
+    // Em caso de erros de integração, podemos tratar o erro aqui.
+    // os códigos de erro estão todos disponíveis no manual de integração.
+    $error = $e->getCieloError();
+}
+// ...
+```
+
+### Alterar dia/valor de uma recorrência
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Ciareis\Cielo\API30\Merchant;
+
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+
+// ...
+// ...
+// Configure o ambiente
+$environment = Environment::sandbox();
+
+// Configure seu merchant
+$merchant = new Merchant('MID', 'MKEY');
+
+try {
+    // Altera o dia da recorrência
+    $recurrency = (new CieloEcommerce($merchant, $environment))->changeDayRecurrentPayment('recurrency id', 10);
+    // Altera o valor da recorrência
+    $recurrency = (new CieloEcommerce($merchant, $environment))->changeAmountRecurrentPayment('recurrency id', 1500);
+} catch (CieloRequestException $e) {
+    // Em caso de erros de integração, podemos tratar o erro aqui.
+    // os códigos de erro estão todos disponíveis no manual de integração.
+    $error = $e->getCieloError();
+}
+// ...
+```
+
+### Atualizando dados de pagamento de uma recorrencia
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use Ciareis\Cielo\API30\Merchant;
+
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\Sale;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Ciareis\Cielo\API30\Ecommerce\Payment;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+// ...
+// Configure o ambiente
+$environment = $environment = Environment::sandbox();
+
+// Configure seu merchant
+$merchant = new Merchant('MERCHANT ID', 'MERCHANT KEY');
+
+// Crie uma instância de Sale informando o ID do da recorrencia
+// Id devolvido por: $sale->getPayment()->getRecurrentPayment()->getRecurrentPaymentId();
+$sale = new Sale('123');
+
+// Crie uma instância de Customer informando o nome do cliente
+$customer = $sale->customer('Fulano de Tal');
+
+// Crie uma instância de Payment informando o valor do pagamento
+$payment = $sale->payment(15700);
+
+// Crie uma instância de Credit Card utilizando os dados de teste
+// esses dados estão disponíveis no manual de integração.
+// Utilize setSaveCard(true) para obter o token do cartão
+$payment->setType(Payment::PAYMENTTYPE_CREDITCARD)
+        ->creditCard("123", CreditCard::VISA)
+        ->setExpirationDate("12/2018")
+        ->setCardNumber("0000000000000001")
+        ->setHolder("Fulano de Tal");
+
+// Crie o pagamento na Cielo
+try {
+    // Configure o SDK com seu merchant e o ambiente apropriado para criar a venda
+    $sale = (new CieloEcommerce($merchant, $environment))->updateRecurrentPayment($sale);
+} catch (CieloRequestException $e) {
+    // Em caso de erros de integração, podemos tratar o erro aqui.
+    // os códigos de erro estão todos disponíveis no manual de integração.
+    $error = $e->getCieloError();
+}
+```
+
 ### Criando transações com cartão de débito
 
 ```php
 <?php
 require 'vendor/autoload.php';
 
-use Cielo\API30\Merchant;
+use Ciareis\Cielo\API30\Merchant;
 
-use Cielo\API30\Ecommerce\Environment;
-use Cielo\API30\Ecommerce\Sale;
-use Cielo\API30\Ecommerce\CieloEcommerce;
-use Cielo\API30\Ecommerce\CreditCard;
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\Sale;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
 
-use Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
 
 // ...
 // Configure o ambiente
@@ -396,14 +584,14 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Cielo\API30\Merchant;
+use Ciareis\Cielo\API30\Merchant;
 
-use Cielo\API30\Ecommerce\Environment;
-use Cielo\API30\Ecommerce\Sale;
-use Cielo\API30\Ecommerce\CieloEcommerce;
-use Cielo\API30\Ecommerce\Payment;
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\Sale;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Ciareis\Cielo\API30\Ecommerce\Payment;
 
-use Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // Configure o ambiente
 $environment = $environment = Environment::sandbox();
@@ -463,13 +651,13 @@ try {
 
 require 'vendor/autoload.php';
 
-use Cielo\API30\Merchant;
+use Ciareis\Cielo\API30\Merchant;
 
-use Cielo\API30\Ecommerce\Environment;
-use Cielo\API30\Ecommerce\CreditCard;
-use Cielo\API30\Ecommerce\CieloEcommerce;
+use Ciareis\Cielo\API30\Ecommerce\Environment;
+use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
 
-use Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
 
 // ...
 // ...
@@ -501,116 +689,12 @@ try {
 // ...
 ```
 
-### Consultando uma recorrencia
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-use Cielo\API30\Merchant;
-
-use Cielo\API30\Ecommerce\Environment;
-use Cielo\API30\Ecommerce\CreditCard;
-use Cielo\API30\Ecommerce\CieloEcommerce;
-
-use Cielo\API30\Ecommerce\Request\CieloRequestException;
-
-// ...
-// ...
-// Configure o ambiente
-$environment = Environment::sandbox();
-
-// Configure seu merchant
-$merchant = new Merchant('MID', 'MKEY');
-
-try {
-    $recurrency = (new CieloEcommerce($merchant, $environment))->getRecurrentPayment('recurrency id');
-} catch (CieloRequestException $e) {
-    // Em caso de erros de integração, podemos tratar o erro aqui.
-    // os códigos de erro estão todos disponíveis no manual de integração.
-    $error = $e->getCieloError();
-}
-// ...
-```
-
-### Ativando/Desativando uma recorrência
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-use Cielo\API30\Merchant;
-
-use Cielo\API30\Ecommerce\Environment;
-use Cielo\API30\Ecommerce\CreditCard;
-use Cielo\API30\Ecommerce\CieloEcommerce;
-
-use Cielo\API30\Ecommerce\Request\CieloRequestException;
-
-// ...
-// ...
-// Configure o ambiente
-$environment = Environment::sandbox();
-
-// Configure seu merchant
-$merchant = new Merchant('MID', 'MKEY');
-
-try {
-    // Desativa uma recorrência
-    $recurrency = (new CieloEcommerce($merchant, $environment))->deactivateRecurrentPayment('recurrency id');
-    // Reativa uma recorrência
-    $recurrency = (new CieloEcommerce($merchant, $environment))->reactivateRecurrentPayment('recurrency id');
-} catch (CieloRequestException $e) {
-    // Em caso de erros de integração, podemos tratar o erro aqui.
-    // os códigos de erro estão todos disponíveis no manual de integração.
-    $error = $e->getCieloError();
-}
-// ...
-```
-
-### Alterar dia/valor de uma recorrência
-
-```php
-<?php
-
-require 'vendor/autoload.php';
-
-use Cielo\API30\Merchant;
-
-use Cielo\API30\Ecommerce\Environment;
-use Cielo\API30\Ecommerce\CreditCard;
-use Cielo\API30\Ecommerce\CieloEcommerce;
-
-use Cielo\API30\Ecommerce\Request\CieloRequestException;
-
-// ...
-// ...
-// Configure o ambiente
-$environment = Environment::sandbox();
-
-// Configure seu merchant
-$merchant = new Merchant('MID', 'MKEY');
-
-try {
-    // Altera o dia da recorrência
-    $recurrency = (new CieloEcommerce($merchant, $environment))->changeDayRecurrentPayment('recurrency id', 10);
-    // Altera o valor da recorrência
-    $recurrency = (new CieloEcommerce($merchant, $environment))->changeAmountRecurrentPayment('recurrency id', 1500);
-} catch (CieloRequestException $e) {
-    // Em caso de erros de integração, podemos tratar o erro aqui.
-    // os códigos de erro estão todos disponíveis no manual de integração.
-    $error = $e->getCieloError();
-}
-// ...
-```
-
-
-
-```
-
-
 ## Manual
 
 Para mais informações sobre a integração com a API 3.0 da Cielo, vide o manual em: [Integração API 3.0](https://developercielo.github.io/manual/cielo-ecommerce)
+
+
+## Créditos
+
+Ao autor original do pacote [developercielo/api-3.0-php](https://github.com/DeveloperCielo/API-3.0-PHP)
+

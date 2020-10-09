@@ -1,6 +1,6 @@
 <?php
 
-namespace Cielo\API30;
+namespace Ciareis\Cielo\API30;
 
 /**
  * Class Merchant

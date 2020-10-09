@@ -1,18 +1,18 @@
 <?php
 
-namespace Cielo\API30\Ecommerce;
+namespace Ciareis\Cielo\API30\Ecommerce;
 
-use Cielo\API30\Ecommerce\Request\ChangeSaleRequest;
-use Cielo\API30\Ecommerce\Request\CreateSaleRequest;
-use Cielo\API30\Ecommerce\Request\DeactiveRecurrencyPayment;
-use Cielo\API30\Ecommerce\Request\QueryRecurrentPaymentRequest;
-use Cielo\API30\Ecommerce\Request\QuerySaleRequest;
-use Cielo\API30\Ecommerce\Request\ReactivateRecurrencyPayment;
-use Cielo\API30\Ecommerce\Request\RecurrencyAmountRecurrencyPayment;
-use Cielo\API30\Ecommerce\Request\RecurrencyDayRecurrencyPayment;
-use Cielo\API30\Ecommerce\Request\TokenizeCardRequest;
-use Cielo\API30\Ecommerce\Request\UpdateSaleRequest;
-use Cielo\API30\Merchant;
+use Ciareis\Cielo\API30\Ecommerce\Request\ChangeRecurrentPaymentRequest;
+use Ciareis\Cielo\API30\Ecommerce\Request\CreateSaleRequest;
+use Ciareis\Cielo\API30\Ecommerce\Request\DeactiveRecurrencyPayment;
+use Ciareis\Cielo\API30\Ecommerce\Request\QueryRecurrentPaymentRequest;
+use Ciareis\Cielo\API30\Ecommerce\Request\QuerySaleRequest;
+use Ciareis\Cielo\API30\Ecommerce\Request\ReactivateRecurrencyPayment;
+use Ciareis\Cielo\API30\Ecommerce\Request\RecurrencyAmountRecurrencyPayment;
+use Ciareis\Cielo\API30\Ecommerce\Request\RecurrencyDayRecurrencyPayment;
+use Ciareis\Cielo\API30\Ecommerce\Request\TokenizeCardRequest;
+use Ciareis\Cielo\API30\Ecommerce\Request\UpdateSaleRequest;
+use Ciareis\Cielo\API30\Merchant;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -253,9 +253,14 @@ class CieloEcommerce
         return $request->execute($recurrentPaymentId);
     }
 
-    public function updateSale(Sale $sale)
+    /**
+     * Change the amount of a RecurrentPayment on Cielo.
+     *
+     * @return mixed
+     */
+    public function updateRecurrentPayment(Sale $sale)
     {
-        $request = new ChangeSaleRequest($this->merchant, $this->environment, $this->logger);
+        $request = new ChangeRecurrentPaymentRequest($this->merchant, $this->environment, $this->logger);
 
         return $request->execute($sale);
     }
