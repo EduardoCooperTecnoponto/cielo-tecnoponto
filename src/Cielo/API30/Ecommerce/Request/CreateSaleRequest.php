@@ -1,10 +1,10 @@
 <?php
 
-namespace Ciareis\Cielo\API30\Ecommerce\Request;
+namespace Tecnoponto\Cielo\API30\Ecommerce\Request;
 
-use Ciareis\Cielo\API30\Ecommerce\Sale;
-use Ciareis\Cielo\API30\Environment;
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Ecommerce\Sale;
+use Tecnoponto\Cielo\API30\Environment;
+use Tecnoponto\Cielo\API30\Merchant;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -27,7 +27,7 @@ class CreateSaleRequest extends AbstractRequest
     /**
      * @param $sale
      *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException
+     * @throws \Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException
      * @throws \RuntimeException
      *
      * @return null

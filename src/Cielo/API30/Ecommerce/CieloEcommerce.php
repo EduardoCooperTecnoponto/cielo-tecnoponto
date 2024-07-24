@@ -1,18 +1,18 @@
 <?php
 
-namespace Ciareis\Cielo\API30\Ecommerce;
+namespace Tecnoponto\Cielo\API30\Ecommerce;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\ChangeRecurrentPaymentRequest;
-use Ciareis\Cielo\API30\Ecommerce\Request\CreateSaleRequest;
-use Ciareis\Cielo\API30\Ecommerce\Request\DeactiveRecurrencyPayment;
-use Ciareis\Cielo\API30\Ecommerce\Request\QueryRecurrentPaymentRequest;
-use Ciareis\Cielo\API30\Ecommerce\Request\QuerySaleRequest;
-use Ciareis\Cielo\API30\Ecommerce\Request\ReactivateRecurrencyPayment;
-use Ciareis\Cielo\API30\Ecommerce\Request\RecurrencyAmountRecurrencyPayment;
-use Ciareis\Cielo\API30\Ecommerce\Request\RecurrencyDayRecurrencyPayment;
-use Ciareis\Cielo\API30\Ecommerce\Request\TokenizeCardRequest;
-use Ciareis\Cielo\API30\Ecommerce\Request\UpdateSaleRequest;
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\ChangeRecurrentPaymentRequest;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CreateSaleRequest;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\DeactiveRecurrencyPayment;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\QueryRecurrentPaymentRequest;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\QuerySaleRequest;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\ReactivateRecurrencyPayment;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\RecurrencyAmountRecurrencyPayment;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\RecurrencyDayRecurrencyPayment;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\TokenizeCardRequest;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\UpdateSaleRequest;
+use Tecnoponto\Cielo\API30\Merchant;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -54,9 +54,7 @@ class CieloEcommerce
      * @param Sale $sale
      *                   The preconfigured Sale
      *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
-     *
-     * @return Sale The Sale with authorization, tid, etc. returned by Cielo.
+     * @throws \Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
@@ -75,9 +73,7 @@ class CieloEcommerce
      * @param string $paymentId
      *                          The paymentId to be queried
      *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
-     *
-     * @return Sale The Sale with authorization, tid, etc. returned by Cielo.
+     * @throws \Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
@@ -95,12 +91,6 @@ class CieloEcommerce
      *
      * @param string $recurrentPaymentId
      *                                   The RecurrentPaymentId to be queried
-     *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
-     *
-     * @return \Cielo\API30\Ecommerce\RecurrentPayment
-     *                                                 The RecurrentPayment with authorization, tid, etc. returned by Cielo.
-     *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
      *      Codes</a>
@@ -120,9 +110,7 @@ class CieloEcommerce
      * @param int    $amount
      *                          Order value in cents
      *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
-     *
-     * @return Sale The Sale with authorization, tid, etc. returned by Cielo.
+     * @throws \Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
@@ -149,9 +137,7 @@ class CieloEcommerce
      *                                 Amount of the authorization should be destined for the service
      *                                 charge
      *
-     * @throws \Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
-     *
-     * @return \Cielo\API30\Ecommerce\Payment the captured Payment
+     * @throws \Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
@@ -183,9 +169,7 @@ class CieloEcommerce
      * @param string $recurrentPaymentId
      *                                   The RecurrentPaymentId to be deactivated
      *
-     * @throws CieloRequestException if anything gets wrong
-     *
-     * @return \Cielo\API30\Ecommerce\RecurrentPayment The RecurrentPayment with authorization, tid, etc. returned by Cielo.
+     * @throws \Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error
@@ -204,9 +188,7 @@ class CieloEcommerce
      * @param string $recurrentPaymentId
      *                                   The RecurrentPaymentId to be reactivated
      *
-     * @throws CieloRequestException if anything gets wrong
-     *
-     * @return \Cielo\API30\Ecommerce\RecurrentPayment The RecurrentPayment with authorization, tid, etc. returned by Cielo.
+     * @throws \Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException if anything gets wrong
      *
      * @see <a href=
      *      "https://developercielo.github.io/Webservice-3.0/english.html#error-codes">Error

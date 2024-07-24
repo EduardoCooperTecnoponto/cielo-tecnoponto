@@ -1,6 +1,6 @@
 <?php
 
-namespace Ciareis\Cielo\API30\Ecommerce;
+namespace Tecnoponto\Cielo\API30\Ecommerce;
 
 /**
  * Class RecurrentPayment

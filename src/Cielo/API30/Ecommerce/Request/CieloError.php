@@ -1,6 +1,6 @@
 <?php
 
-namespace Ciareis\Cielo\API30\Ecommerce\Request;
+namespace Tecnoponto\Cielo\API30\Ecommerce\Request;
 
 /**
  * Class CieloError

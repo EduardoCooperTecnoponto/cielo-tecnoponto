@@ -2,11 +2,9 @@
 
 SDK API-3.0 PHP
 
-## Pacote forcado do original
+## Pacote forkado do pacote Tecnoponto/cielo-api-3.0-php
 
-Originalmente este pacote é derivado do pacote developercielo/api-3.0-php com adição de novos recursos.
-
-Por que não fizemos então uma PR ao pacote original? Existem várias sem respostas.
+Originalmente este pacote é derivado do pacote Tecnoponto/cielo-api-3.0-php com adição de novos recursos.
 
 ## Principais recursos
 
@@ -33,25 +31,8 @@ Por envolver a interface de usuário da aplicação, o SDK funciona apenas como 
 * PHP >= 5.6
 
 ## Instalando o SDK
-
-Se já possui um arquivo `composer.json`, basta adicionar a seguinte dependência ao seu projeto:
-
-```json
-"require": {
-    "ciareis/cielo-api-3.0-php": "^3.0"
-}
 ```
-
-Com a dependência adicionada ao `composer.json`, basta executar:
-
-```
-composer install
-```
-
-Alternativamente, você pode executar diretamente em seu terminal:
-
-```
-composer require "ciareis/cielo-api-3.0-php"
+composer require "tecnoponto/cielo-tecnoponto"
 ```
 
 ## Produtos e Bandeiras suportadas e suas constantes
@@ -60,7 +41,7 @@ composer require "ciareis/cielo-api-3.0-php"
 <?php
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
 ```
 
 | Bandeira         | Constante              | Crédito à vista | Crédito parcelado Loja | Débito | Voucher |
@@ -84,15 +65,15 @@ Para criar um pagamento simples com cartão de crédito com o SDK, basta fazer:
 <?php
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\Sale;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
-use Ciareis\Cielo\API30\Ecommerce\Payment;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\Sale;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Payment;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // Configure o ambiente
 $environment = $environment = Environment::sandbox();
@@ -145,15 +126,15 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\Sale;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
-use Ciareis\Cielo\API30\Ecommerce\Payment;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\Sale;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Payment;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // Configure o ambiente
 $environment = $environment = Environment::sandbox();
@@ -201,15 +182,15 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\Sale;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
-use Ciareis\Cielo\API30\Ecommerce\Payment;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\Sale;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Payment;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // Configure o ambiente
 $environment = $environment = Environment::sandbox();
@@ -254,15 +235,15 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\Sale;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
-use Ciareis\Cielo\API30\Ecommerce\Payment;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\Sale;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Payment;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // ...
 // Configure o ambiente
@@ -312,13 +293,13 @@ try {
 
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 
 // ...
 // ...
@@ -344,15 +325,15 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\Sale;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
-use Ciareis\Cielo\API30\Ecommerce\Payment;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\Sale;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Payment;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // Configure o ambiente
 $environment = $environment = Environment::sandbox();
@@ -399,13 +380,13 @@ try {
 
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 
 // ...
 // ...
@@ -435,13 +416,13 @@ try {
 
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 
 // ...
 // ...
@@ -470,15 +451,15 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\Sale;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
-use Ciareis\Cielo\API30\Ecommerce\Payment;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\Sale;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Payment;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // Configure o ambiente
 $environment = $environment = Environment::sandbox();
@@ -522,14 +503,14 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\Sale;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\Sale;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 
 // ...
 // Configure o ambiente
@@ -584,14 +565,14 @@ try {
 <?php
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\Sale;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
-use Ciareis\Cielo\API30\Ecommerce\Payment;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\Sale;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Payment;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 // ...
 // Configure o ambiente
 $environment = $environment = Environment::sandbox();
@@ -651,13 +632,13 @@ try {
 
 require 'vendor/autoload.php';
 
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Merchant;
 
-use Ciareis\Cielo\API30\Ecommerce\Environment;
-use Ciareis\Cielo\API30\Ecommerce\CreditCard;
-use Ciareis\Cielo\API30\Ecommerce\CieloEcommerce;
+use Tecnoponto\Cielo\API30\Ecommerce\Environment;
+use Tecnoponto\Cielo\API30\Ecommerce\CreditCard;
+use Tecnoponto\Cielo\API30\Ecommerce\CieloEcommerce;
 
-use Ciareis\Cielo\API30\Ecommerce\Request\CieloRequestException;
+use Tecnoponto\Cielo\API30\Ecommerce\Request\CieloRequestException;
 
 // ...
 // ...

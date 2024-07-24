@@ -1,10 +1,10 @@
 <?php
 
-namespace Ciareis\Cielo\API30\Ecommerce\Request;
+namespace Tecnoponto\Cielo\API30\Ecommerce\Request;
 
-use Ciareis\Cielo\API30\Ecommerce\RecurrentPayment;
-use Ciareis\Cielo\API30\Environment;
-use Ciareis\Cielo\API30\Merchant;
+use Tecnoponto\Cielo\API30\Ecommerce\RecurrentPayment;
+use Tecnoponto\Cielo\API30\Environment;
+use Tecnoponto\Cielo\API30\Merchant;
 use Psr\Log\LoggerInterface;
 
 /**

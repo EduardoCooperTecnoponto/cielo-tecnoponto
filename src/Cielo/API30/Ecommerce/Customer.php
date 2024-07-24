@@ -1,6 +1,6 @@
 <?php
 
-namespace Ciareis\Cielo\API30\Ecommerce;
+namespace Tecnoponto\Cielo\API30\Ecommerce;
 
 /**
  * Class Customer
@@ -27,7 +27,7 @@ class Customer implements \JsonSerializable
     /**
      * Customer constructor.
      *
-     * @param null $name
+     * @param $name
      */
     public function __construct($name = null)
     {

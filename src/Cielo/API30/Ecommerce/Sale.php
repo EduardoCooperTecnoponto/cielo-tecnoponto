@@ -1,6 +1,6 @@
 <?php
 
-namespace Ciareis\Cielo\API30\Ecommerce;
+namespace Tecnoponto\Cielo\API30\Ecommerce;
 
 /**
  * Class Sale
@@ -19,7 +19,7 @@ class Sale implements \JsonSerializable
     /**
      * Sale constructor.
      *
-     * @param null $merchantOrderId
+     * @param $merchantOrderId
      */
     public function __construct($merchantOrderId = null)
     {

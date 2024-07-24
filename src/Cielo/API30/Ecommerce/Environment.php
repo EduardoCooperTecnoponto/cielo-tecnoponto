@@ -1,11 +1,11 @@
 <?php
 
-namespace Ciareis\Cielo\API30\Ecommerce;
+namespace Tecnoponto\Cielo\API30\Ecommerce;
 
 /**
  * Class Environment.
  */
-class Environment implements \Ciareis\Cielo\API30\Environment
+class Environment implements \Tecnoponto\Cielo\API30\Environment
 {
     private $api;
 

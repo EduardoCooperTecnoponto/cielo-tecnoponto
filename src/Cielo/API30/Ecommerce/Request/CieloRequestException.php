@@ -1,6 +1,6 @@
 <?php
 
-namespace Ciareis\Cielo\API30\Ecommerce\Request;
+namespace Tecnoponto\Cielo\API30\Ecommerce\Request;
 
 /**
  * Class CieloRequestException
@@ -17,7 +17,7 @@ class CieloRequestException extends \Exception
      *
      * @param string $message
      * @param int    $code
-     * @param null   $previous
+     * @param  $previous
      */
     public function __construct($message, $code, $previous = null)
     {
