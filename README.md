@@ -33,7 +33,7 @@ Por envolver a interface de usuário da aplicação, o SDK funciona apenas como 
 
 ## Instalando o SDK
 ```
-composer require "tecnoponto/cielo-tecnoponto"
+composer require "tecnoponto/cielo"
 ```
 
 ## Produtos e Bandeiras suportadas e suas constantes
