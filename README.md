@@ -2,9 +2,9 @@
 
 SDK API-3.0 PHP
 
-## Pacote forkado do pacote Tecnoponto/cielo-api-3.0-php
+## Pacote forkado do pacote ciareis/cielo-api-3.0-php
 
-Originalmente este pacote é derivado do pacote Tecnoponto/cielo-api-3.0-php com adição de novos recursos.
+Originalmente este pacote é derivado do pacote ciareis/cielo-api-3.0-php com adição de novos recursos.
 
 ## Principais recursos
 
@@ -17,6 +17,7 @@ Originalmente este pacote é derivado do pacote Tecnoponto/cielo-api-3.0-php com
     * [x] Alteração do valor da recorrência
 * [x] Pagamentos por cartão de débito.
 * [x] Pagamentos por boleto.
+* [x] Pagamentos por pix.
 * [x] Pagamentos por transferência eletrônica.
 * [x] Cancelamento de autorização.
 * [x] Consulta de pagamentos.
