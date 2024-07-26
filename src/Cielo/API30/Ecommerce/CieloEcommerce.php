@@ -68,6 +68,19 @@ class CieloEcommerce
     }
 
     /**
+     * Send the Sale array instead of object to be created and return the Sale with tid and the status
+     * returned by Cielo.
+     * @param mixed $arraySale 
+     * @return null
+     */
+    public function createSaleArray($arraySale)
+    {
+        $createSaleRequest = new CreateSaleRequest($this->merchant, $this->environment, $this->logger);
+
+        return $createSaleRequest->execute($arraySale);
+    }
+
+    /**
      * Query a Sale on Cielo by paymentId.
      *
      * @param string $paymentId

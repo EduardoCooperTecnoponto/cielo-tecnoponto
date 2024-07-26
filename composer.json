@@ -4,7 +4,7 @@
       "Tecnoponto\\Cielo\\": "src/Cielo"
     }
   },
-  "name": "tecnoponto/cielo-tecnoponto",
+  "name": "tecnoponto/cielo",
   "description": "Integração com a API 3.0 da Cielo",
   "license": "MIT",
   "type": "library",

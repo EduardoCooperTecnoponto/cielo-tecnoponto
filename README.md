@@ -670,6 +670,38 @@ try {
 // ...
 ```
 
+### Criando um pagamento na modalidade Pix:
+
+```php
+<?php
+$sale->customer('Nome do cliente')
+    ->setIdentity('1234567898745')
+    ->setIdentityType('CNPJ');
+        
+$sale->payment(158900)
+    ->setType(Payment::PAYMENTTYPE_PIX)
+    ->setAmount(158900);
+
+try {
+    $sale = (new CieloEcommerce($this->merchant, $this->environment))->createSale($sale);
+
+    $paymentId = $sale->getPayment()->getPaymentId();
+    $pix_qrcode = $sale->getPayment()->getQrcodeString();
+    $nsu_pix = $sale->getProofOfSale();
+
+    if (isset($paymentId)) {
+        return true;
+    } else {
+        return false;
+    }
+
+} catch (CieloRequestException $e) {
+    $error = $e->getCieloError();
+    return ApiResponseClass::sendResponseInternal(false, $e->getMessage());
+}  
+// ...
+```
+
 ## Manual
 
 Para mais informações sobre a integração com a API 3.0 da Cielo, vide o manual em: [Integração API 3.0](https://developercielo.github.io/manual/cielo-ecommerce)

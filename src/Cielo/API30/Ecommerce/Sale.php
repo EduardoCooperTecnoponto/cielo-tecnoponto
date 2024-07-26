@@ -157,4 +157,5 @@ class Sale implements \JsonSerializable
 
         return $this;
     }
+
 }

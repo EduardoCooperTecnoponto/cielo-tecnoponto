@@ -34,8 +34,8 @@ class CreateSaleRequest extends AbstractRequest
      */
     public function execute($sale)
     {
-        $url = $this->environment->getApiUrl().'1/sales/';
 
+        $url = $this->environment->getApiUrl().'1/sales/';
         return $this->sendRequest('POST', $url, $sale);
     }
 
